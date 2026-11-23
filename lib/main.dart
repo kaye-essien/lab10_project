@@ -46,6 +46,15 @@ class _SplitPageState extends State<SplitPage> {
     });
   }
 
+  void _reset() {
+    _total.clear();
+    setState(() {
+      _people = 2;
+      _tipPercent = 0;
+      _result = 'Enter the bill total';
+    });
+  }
+
   @override
   void dispose() {
     _total.dispose();
@@ -105,6 +114,11 @@ class _SplitPageState extends State<SplitPage> {
             FilledButton(
               onPressed: _calculate,
               child: const Text('Split'),
+            ),
+            const SizedBox(height: 8),
+            TextButton(
+              onPressed: _reset,
+              child: const Text('Reset'),
             ),
             const SizedBox(height: 24),
             Text(
